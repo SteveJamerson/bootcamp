@@ -1,10 +1,11 @@
 import React from 'react';
+import { Section } from './styles';
 
 const Home = () => {
   return (
-    <div>
+    <Section>
       <h1>Home</h1>
-    </div>
+    </Section>
   );
 };
 

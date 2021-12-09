@@ -1,12 +1,13 @@
 import React from 'react';
+import { Section } from '../Home/styles';
 
 const PageNotFound = () => {
     return (
-        <div>
+        <Section>
             <h1>
                 Page not found
             </h1>
-        </div>
+        </Section>
     );
 };
 

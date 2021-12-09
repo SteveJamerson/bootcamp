@@ -17,8 +17,6 @@ export const ButtonComponent = styled.button<ButtonProps>`
         css`background-color: var(--gray-900); color: var(--white);`}
     ${props => props.color === "secondary" &&
         css`background-color: var(--white); color: var(--black);`}
-    ${props => props.variant === "text" &&
-        css`padding: 0; display: inline-flex`}
     ${props => props.variant === "link" &&
         css`text-decoration: underline;`}
 

@@ -1,4 +1,4 @@
-export type ButtonVariant = 'outlined' | 'text' | 'link' | 'default';
+export type ButtonVariant = 'outlined' | 'link' | 'default';
 
 export type ButtonTypes = 'submit' | 'reset' | 'button';
 

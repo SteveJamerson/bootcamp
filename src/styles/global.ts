@@ -13,7 +13,13 @@ export default createGlobalStyle`
         --light: var(--gray-100);
         --dark: var(--black);
 
+        --error: red;
+        --success: green;
+
         --color-body: var(--gray-900);
+
+        --color-error: var(--error);
+        --color-success: var(--success);
 
         --font-size-default: 16px;
         --font-size-h1: 2.25rem;
@@ -24,6 +30,7 @@ export default createGlobalStyle`
         --font-size-h6: 1rem;
         --font-size-body: 1rem;
         --font-size-small: .875rem;
+        --font-size-smaller: .75rem;
     }
     * {
     box-sizing: border-box;

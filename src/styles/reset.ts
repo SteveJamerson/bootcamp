@@ -338,7 +338,7 @@ export default createGlobalStyle`
     }
 
     ::selection {
-    background-color: $green;
-    color: $white;
+    background-color: var(--green);
+    color: var(--white);
     }
 `

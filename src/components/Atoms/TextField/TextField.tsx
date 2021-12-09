@@ -1,6 +1,5 @@
 import React, { AnchorHTMLAttributes, useCallback, useState, useRef } from 'react';
 import clsx from 'clsx';
-import Icon from '../Icon';
 import { IconName } from '../Icon/Icon.types';
 import { TextFieldComponent } from './styles';
 
@@ -10,8 +9,7 @@ export interface TextFieldProps extends AnchorHTMLAttributes<HTMLInputElement> {
   type: 'text' | 'number' | 'tel' | 'email' | 'password' | 'search';
   id: string;
   label?: string;
-  error?: boolean;
-  helperText?: string;
+  errorText?: string;
   disabled?: boolean;
   iconPosition?: 'start' | 'end';
   iconName?: IconName;
@@ -24,11 +22,10 @@ const TextField: React.FC<TextFieldProps> = ({
   type = 'text',
   id,
   label,
-  iconPosition,
   iconName,
+  iconPosition = iconName ? 'end' : '',
   iconSize,
-  error,
-  helperText,
+  errorText,
   disabled,
   ...props
 }) => {
@@ -46,20 +43,16 @@ const TextField: React.FC<TextFieldProps> = ({
   }, []);
 
   const classes = clsx(
-    `textfield`,
-    variant && `textfield--${variant}`,
-    error && `textfield--${variant}--error`,
-    disabled && `textfield--${variant}--disabled`,
-    isFocused && `textfield--${variant}--focus`,
     className,
   );
 
   return (
     <>
-      <TextFieldComponent className={classes} id={'_' + id} type={type}>
-        {iconPosition === 'start' && iconName && <Icon size={iconSize} name={iconName} />}
+      <TextFieldComponent
+        className={classes} id={'_' + id}
+        type={type}
+      > 
         <input
-          className='ds-textfield__input'
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
           type={type}
@@ -71,16 +64,16 @@ const TextField: React.FC<TextFieldProps> = ({
 
         <label
           htmlFor={id}
+          className={isFocused || isField ? 'caption' : 'placehold'}
         >
           {label}
         </label>
-        {iconPosition === 'end' && iconName && <Icon size={iconSize} name={iconName} />}
+        {errorText && (
+          <small className='error'>
+            {errorText}
+          </small>
+        )}
       </TextFieldComponent>
-      {helperText && (
-        <p>
-          {helperText}
-        </p>
-      )}
     </>
   );
 };

@@ -5,10 +5,11 @@ import Routing from './pages/routes';
 import ResetStyle from './styles/reset'
 import GlobalStyle from './styles/global'
 import './styles/theme.scss'
+import { AuthProvider } from './contexts/AuthContext';
 
 const App: React.FC = () => {
   return (
-    <>
+    <AuthProvider>
       <ResetStyle />
       <GlobalStyle />
       <Helmet >
@@ -20,7 +21,7 @@ const App: React.FC = () => {
       <Router>
         <Routing />
       </Router>
-    </>
+    </AuthProvider>
   );
 }
 

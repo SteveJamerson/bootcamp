@@ -19,6 +19,10 @@ export const TextFieldComponent = styled.div<TextFieldProps>`
         &:focus {
         outline: none;
         }
+
+        &.invalid{
+            border-color: var(--error)
+        }
     }
 
     label {

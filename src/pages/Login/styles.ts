@@ -50,12 +50,18 @@ export const Form = styled.div `
             width: 100%;
         }
 
-        a {
+        .forgot {
             align-self: flex-end;
         }
 
         button {
             min-width: 175px;
+        }
+
+        .invalid {
+            input {
+                border-color: var(--error)
+            }
         }
     }
 `;

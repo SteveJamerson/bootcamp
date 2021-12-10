@@ -40,9 +40,10 @@ const Slider: React.FC<SliderProps> = ({
         </SliderItemComponent>
         <SliderNavComponent className="carousel-nav">
           {
-            sliders.map(slider => {
+            sliders.map((slider,i) => {
               return (
                 <input
+                  key={i}
                   type="radio"
                   name="carousel-select"
                   className="dot"

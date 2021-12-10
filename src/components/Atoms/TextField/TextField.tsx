@@ -1,4 +1,4 @@
-import React, { AnchorHTMLAttributes, useCallback, useState, useRef } from 'react';
+import React, { AnchorHTMLAttributes, useCallback, useState, useRef, useEffect } from 'react';
 import clsx from 'clsx';
 import { IconName } from '../Icon/Icon.types';
 import { TextFieldComponent } from './styles';
@@ -13,7 +13,9 @@ export interface TextFieldProps extends AnchorHTMLAttributes<HTMLInputElement> {
   disabled?: boolean;
   iconPosition?: 'start' | 'end';
   iconName?: IconName;
-  iconSize?: number
+  iconSize?: number;
+  required?: boolean;
+  pattern?: string;
 }
 
 const TextField: React.FC<TextFieldProps> = ({
@@ -27,11 +29,15 @@ const TextField: React.FC<TextFieldProps> = ({
   iconSize,
   errorText,
   disabled,
+  required = false,
+  pattern,
   ...props
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [isField, setIsField] = useState(false);
   const [isFocused, setIsFocused] = useState(false);
+  const handleError = inputRef.current?.validity.valid
+  const validationMessage = inputRef.current?.validationMessage
 
   const handleInputFocus = useCallback(() => {
     setIsFocused(true);
@@ -41,6 +47,10 @@ const TextField: React.FC<TextFieldProps> = ({
     setIsFocused(false);
     setIsField(!!inputRef.current?.value);
   }, []);
+
+  useEffect(() => {
+    if (inputRef.current?.value) setIsField(true)   
+  })
 
   const classes = clsx(
     className,
@@ -55,11 +65,14 @@ const TextField: React.FC<TextFieldProps> = ({
         <input
           onFocus={handleInputFocus}
           onBlur={handleInputBlur}
+          className={!handleError && isField ? 'invalid' : ''}
           type={type}
           id={id}
           disabled={disabled}
           ref={inputRef}
           {...props}
+          required={required}
+          pattern={pattern}
         />
 
         <label
@@ -68,9 +81,9 @@ const TextField: React.FC<TextFieldProps> = ({
         >
           {label}
         </label>
-        {errorText && (
+        {(!handleError && isField) && (
           <small className='error'>
-            {errorText}
+            {errorText || validationMessage}
           </small>
         )}
       </TextFieldComponent>

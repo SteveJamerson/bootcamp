@@ -21,6 +21,7 @@ const Button: React.FC<ButtonProps> = ({
   variant = 'default',
   color = 'primary',
   text,
+  type = 'button',
   children,
   iconName,
   iconPosition = iconName ? 'start' : '',
@@ -32,13 +33,11 @@ const Button: React.FC<ButtonProps> = ({
   );
 
   return (
-    <>
-      <ButtonComponent color={color} variant={variant} className={classes} {...props}>
+      <ButtonComponent type={type} color={color} variant={variant} className={classes} {...props}>
         {iconPosition === 'start' ? <Icon name={iconName as IconName} /> : ''}
         {text || children}
         {iconPosition === 'end' ? <Icon name={iconName as IconName} /> : ''}
       </ButtonComponent>
-    </>
   );
 };
 

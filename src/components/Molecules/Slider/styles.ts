@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const SliderWrapperComponent = styled.div`
     position: relative;
     text-align: center;
-    /* * {
+    * {
         user-select: none;
-    } */
+    }
 
 `
 export const SliderItemsComponent = styled.div`
@@ -23,7 +23,7 @@ export const SliderItemComponent = styled.div`
     width: 100%;
     height: auto;
     display: flex;
-    overflow-x: auto;
+    overflow-x: hidden;
     scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scroll-behavior: smooth;

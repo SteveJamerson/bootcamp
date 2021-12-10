@@ -28,8 +28,8 @@ export default createGlobalStyle`
         --font-size-h4: 1.2rem;
         --font-size-h5: 1.1rem;
         --font-size-h6: 1rem;
-        --font-size-body: 1rem;
-        --font-size-small: .875rem;
+        --font-size-body: .875rem;
+        --font-size-small: .8rem;
         --font-size-smaller: .75rem;
     }
     * {
@@ -37,6 +37,7 @@ export default createGlobalStyle`
     }
 
     html {
+    overflow-x:hidden;
     font-family: "Mulish", sans-serif;
     font-size: 16px;
     }
@@ -93,5 +94,9 @@ export default createGlobalStyle`
         margin-bottom: 0.75rem;
         font-weight: 300;
         line-height: calc(var(--size) * 2);
+    }
+    a {
+        --size: var(--font-size-body);
+        font-size: var(--size);
     }
 `

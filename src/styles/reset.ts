@@ -95,11 +95,11 @@ export default createGlobalStyle`
     }
 
     a {
-    color: $green;
+        color: var(--green);
     }
 
     a:hover {
-    color: initial;
+        text-decoration: none;
     }
 
     pre,
@@ -138,7 +138,7 @@ export default createGlobalStyle`
     padding: 0.2rem 0.4rem;
     font-size: 0.875em;
     color: #fff;
-    background-color: $gray-900;
+    background-color: var(--gray-900);
     border-radius: 0.2rem;
     }
     kbd kbd {

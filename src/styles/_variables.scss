@@ -21,6 +21,7 @@ $font-size-h5: 1.1rem;
 $font-size-h6: 1rem;
 $font-size-body: 1rem;
 $font-size-small: .875rem;
+$font-size-smaller: .75rem;
 
 $font-sizes: (
   1: $font-size-h1,
@@ -28,7 +29,9 @@ $font-sizes: (
   3: $font-size-h3,
   4: $font-size-h4,
   5: $font-size-h5,
-  6: $font-size-h6
+  6: $font-size-h6,
+  7: $font-size-small,
+  8: $font-size-smaller
 );
 
 $theme-colors: (

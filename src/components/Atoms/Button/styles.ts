@@ -5,9 +5,10 @@ export const ButtonComponent = styled.button<ButtonProps>`
     display: flex;
     place-content: center;
     align-items: center;
+    width: fit-content;
     gap: 1rem;
     font-weight: 600;
-    padding: .25rem 1.5rem;
+    padding: .5rem 1.5rem;
     border: 0;
     border-radius: 3rem;
     color: inherit;
